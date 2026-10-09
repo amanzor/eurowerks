@@ -6,27 +6,27 @@ const STEPS = [
   {
     title: 'Arrival',
     body: 'Your car is checked in, walked around and documented before a single tool touches it.',
-    image: '/images/shop-exterior-r8.webp',
+    image: 'images/shop-exterior-r8.webp',
   },
   {
     title: 'Diagnosis',
     body: 'Dealer-level diagnostics, and a technician who explains every finding in plain language.',
-    image: '/images/bmw-m-bay.webp',
+    image: 'images/bmw-m-bay.webp',
   },
   {
     title: 'The Work',
     body: 'Factory procedure, quality parts, everything torqued to spec. No shortcuts, ever.',
-    image: '/images/porsche-gt2rs-exhaust.webp',
+    image: 'images/porsche-gt2rs-exhaust.webp',
   },
   {
     title: 'The Spa',
     body: 'Every car is treated like the collector piece it is — cleaned, inspected and presented before handover.',
-    image: '/images/audi-r8-chameleon.webp',
+    image: 'images/audi-r8-chameleon.webp',
   },
   {
     title: 'Handover',
     body: 'A transparent walkthrough of what was done and why. Then the keys go back to you.',
-    image: '/images/sl-r8-duo.webp',
+    image: 'images/sl-r8-duo.webp',
   },
 ]
 

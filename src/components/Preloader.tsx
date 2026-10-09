@@ -44,7 +44,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
           </div>
           <div className="overflow-hidden">
             <motion.img
-              src="/images/logo-wordmark.png"
+              src="images/logo-wordmark.png"
               alt="Eurowerks"
               className="mx-auto w-[min(80vw,640px)]"
               initial={{ y: '110%' }}

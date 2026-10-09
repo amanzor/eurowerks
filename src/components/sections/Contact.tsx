@@ -43,7 +43,7 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden bg-ink px-4 py-28 md:px-8 md:py-40">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_120%,rgba(215,38,46,0.35),transparent_60%)]" />
       <img
-        src="/images/huracan-sto.webp"
+        src="images/huracan-sto.webp"
         alt=""
         className="absolute inset-0 h-full w-full object-cover opacity-[0.12] mix-blend-luminosity"
         loading="lazy"
@@ -119,7 +119,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 text-sm text-paper/60 md:grid-cols-4">
           <div className="md:col-span-2">
-            <img src="/images/logo-wordmark.png" alt="Eurowerks" className="h-6 w-auto" />
+            <img src="images/logo-wordmark.png" alt="Eurowerks" className="h-6 w-auto" />
             <p className="mt-5 max-w-sm">
               European vehicle service & performance center. BMW, Audi, Mercedes-Benz, Porsche, Land Rover, Rolls-Royce
               and Bentley.

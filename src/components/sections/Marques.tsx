@@ -5,11 +5,11 @@ import { Eyebrow, RevealText } from '../ui/Reveal'
 
 // Only marques we have real shop photos for get a hover image.
 const images: Record<string, string> = {
-  BMW: '/images/bmw-m4-csl-front.webp',
-  Audi: '/images/audi-r8-spyder.webp',
-  'Mercedes-Benz': '/images/sl-r8-duo.webp',
-  Porsche: '/images/porsche-911-classic.webp',
-  'Rolls-Royce': '/images/rolls-cullinan.webp',
+  BMW: 'images/bmw-m4-csl-front.webp',
+  Audi: 'images/audi-r8-spyder.webp',
+  'Mercedes-Benz': 'images/sl-r8-duo.webp',
+  Porsche: 'images/porsche-911-classic.webp',
+  'Rolls-Royce': 'images/rolls-cullinan.webp',
 }
 
 export function Marques() {

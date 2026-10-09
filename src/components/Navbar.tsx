@@ -38,7 +38,7 @@ export function Navbar() {
           )}
         >
           <a href="#top" aria-label="Eurowerks home" className="shrink-0">
-            <img src="/images/logo-wordmark.png" alt="Eurowerks" className="h-4 w-auto md:h-5" />
+            <img src="images/logo-wordmark.png" alt="Eurowerks" className="h-4 w-auto md:h-5" />
           </a>
           <ul className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
