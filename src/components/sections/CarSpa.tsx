@@ -16,7 +16,7 @@ const STEPS = [
   {
     title: 'The Work',
     body: 'Factory procedure, quality parts, everything torqued to spec. No shortcuts, ever.',
-    image: 'images/porsche-gt2rs-exhaust.webp',
+    image: 'images/porsche-gt2rs-engine.webp',
   },
   {
     title: 'The Spa',

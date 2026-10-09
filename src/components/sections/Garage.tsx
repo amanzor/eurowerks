@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
+import { photos } from '../../data/gallery'
 import { gallery } from '../../data/site'
 import { Eyebrow } from '../ui/Reveal'
+
+const photoCount = photos.length
 
 export function Garage() {
   const ref = useRef<HTMLElement>(null)
@@ -55,6 +59,24 @@ export function Garage() {
               </figcaption>
             </figure>
           ))}
+          <a
+            href="gallery.html"
+            className="group relative grid h-[56svh] w-[78vw] shrink-0 place-items-center overflow-hidden rounded-3xl border border-white/10 bg-ink-2 md:w-[28vw]"
+          >
+            <div className="absolute inset-0 grid grid-cols-2 gap-1 opacity-30 transition-opacity duration-700 group-hover:opacity-50">
+              {['bmw-m2', 'huracan-black', 'audi-r8-engine-glass', 'bmw-m4-frozen'].map((f) => (
+                <img key={f} src={`images/thumbs/${f}.webp`} alt="" loading="lazy" className="h-full w-full object-cover grayscale" />
+              ))}
+            </div>
+            <div className="absolute inset-0 bg-ink/60" />
+            <div className="relative text-center">
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-brand">{photoCount} photos</p>
+              <p className="mt-3 font-display text-3xl text-paper md:text-4xl">View the full gallery</p>
+              <span className="mx-auto mt-6 grid size-14 place-items-center rounded-full bg-brand text-white transition-transform duration-500 group-hover:rotate-45">
+                <ArrowUpRight className="size-5" />
+              </span>
+            </div>
+          </a>
         </motion.div>
       </div>
     </section>

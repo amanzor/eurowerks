@@ -13,6 +13,10 @@ export const business = {
     { name: 'Aavin', phone: '954-478-1888' },
     { name: 'Jared', phone: '954-675-0173' },
   ],
+  socials: {
+    instagram: 'https://www.instagram.com/eurowerks/',
+    facebook: 'https://www.facebook.com/EurowerksAuto',
+  },
 }
 
 export const marques = [
@@ -87,28 +91,32 @@ export const services: Service[] = [
     kicker: '06 — Safety Tech',
     title: 'ADAS Calibration',
     body: 'Cameras, radar and driver-assist sensors re-aimed to spec after glass, alignment or collision work.',
+    image: 'images/bmw-m5-green-front.webp',
   },
   {
     kicker: '07 — Peace of Mind',
     title: 'Pre-Purchase & Warranty',
     body: 'Thorough pre-purchase inspections and 3rd-party warranty repairs handled start to finish.',
+    image: 'images/audi-r8-blue.webp',
   },
   {
     kicker: '08 — Everything Else',
     title: 'Engine, Electrical & A/C',
     body: 'Engine repair, battery and electrical faults, A/C and general diagnostics.',
+    image: 'images/huracan-engine-out.webp',
   },
 ]
 
+// Highlights for the homepage strip; the full set lives on the gallery page (src/data/gallery.ts).
 export const gallery = [
+  { src: 'images/huracan-engine-out.webp', caption: 'Huracán · engine out' },
   { src: 'images/huracan-sto.webp', caption: 'Lamborghini Huracán STO' },
+  { src: 'images/porsche-gt2rs-engine.webp', caption: 'Porsche 911 GT2 RS' },
   { src: 'images/bmw-m4-green-bronze.webp', caption: 'BMW M4 Competition' },
-  { src: 'images/porsche-911-classic.webp', caption: 'Porsche 911 Classic' },
-  { src: 'images/audi-r8-chameleon.webp', caption: 'Audi R8 Spyder' },
+  { src: 'images/maybach-two-tone.webp', caption: 'Mercedes-Maybach S-Class' },
+  { src: 'images/audi-r8-blue.webp', caption: 'Audi R8 V10' },
+  { src: 'images/porsche-911-classic.webp', caption: 'Classic Porsche 911' },
   { src: 'images/rolls-cullinan.webp', caption: 'Rolls-Royce Cullinan' },
+  { src: 'images/bmw-m3-e92-white.webp', caption: 'BMW M3 (E92)' },
   { src: 'images/ferrari-328.webp', caption: 'Ferrari 328' },
-  { src: 'images/audi-etron-gt-rear.webp', caption: 'Audi RS e-tron GT' },
-  { src: 'images/bmw-m4-frozen.webp', caption: 'BMW M4 Frozen' },
-  { src: 'images/aventador-lineup.webp', caption: 'The Lineup' },
-  { src: 'images/audi-r8-red.webp', caption: 'Audi R8 V10' },
 ]

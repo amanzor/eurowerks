@@ -2,6 +2,7 @@ import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 import { business, serviceAreas } from '../../data/site'
 import { MagneticButton } from '../ui/MagneticButton'
 import { Eyebrow, FadeIn, RevealText } from '../ui/Reveal'
+import { SocialLinks } from '../ui/SocialLinks'
 
 export function ServiceAreas() {
   return (
@@ -54,11 +55,12 @@ export function Contact() {
           text="Your car deserves Eurowerks."
           className="mt-6 max-w-4xl font-display text-5xl leading-[1] text-paper md:text-8xl"
         />
-        <FadeIn className="mt-10 flex flex-wrap gap-3">
+        <FadeIn className="mt-10 flex flex-wrap items-center gap-3">
           <MagneticButton href={`tel:${business.advisors[0].phone}`}>Call {business.advisors[0].name}</MagneticButton>
           <MagneticButton href={`mailto:${business.email}`} variant="ghost">
             Email the shop
           </MagneticButton>
+          <SocialLinks className="items-center" />
         </FadeIn>
 
         <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -113,7 +115,8 @@ function InfoCard({ icon, title, children }: { icon: React.ReactNode; title: str
 
 const YEAR = new Date().getFullYear()
 
-export function Footer() {
+export function Footer({ page = 'home' }: { page?: 'home' | 'gallery' }) {
+  const to = (id: string) => (page === 'home' ? `#${id}` : `./#${id}`)
   return (
     <footer className="relative overflow-hidden border-t border-line bg-ink px-4 pt-16 pb-8 md:px-8">
       <div className="mx-auto max-w-7xl">
@@ -124,14 +127,15 @@ export function Footer() {
               European vehicle service & performance center. BMW, Audi, Mercedes-Benz, Porsche, Land Rover, Rolls-Royce
               and Bentley.
             </p>
+            <SocialLinks className="mt-6" />
           </div>
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-paper">Explore</p>
             <ul className="mt-4 space-y-2">
-              <li><a href="#services" className="hover:text-paper">Services</a></li>
-              <li><a href="#spa" className="hover:text-paper">The Car Spa</a></li>
-              <li><a href="#garage" className="hover:text-paper">Garage</a></li>
-              <li><a href="#contact" className="hover:text-paper">Contact</a></li>
+              <li><a href={to('services')} className="hover:text-paper">Services</a></li>
+              <li><a href={to('spa')} className="hover:text-paper">The Car Spa</a></li>
+              <li><a href="gallery.html" className="hover:text-paper">Gallery</a></li>
+              <li><a href={to('contact')} className="hover:text-paper">Contact</a></li>
             </ul>
           </div>
           <div>

@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { setLenis } from '../lib/scroll'
 
 export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const lenis = new Lenis({ lerp: 0.09, anchors: { offset: -20 } })
+    setLenis(lenis)
     let raf = 0
     const loop = (t: number) => {
       lenis.raf(t)
@@ -14,6 +16,7 @@ export function SmoothScroll() {
     return () => {
       cancelAnimationFrame(raf)
       lenis.destroy()
+      setLenis(null)
     }
   }, [])
   return null

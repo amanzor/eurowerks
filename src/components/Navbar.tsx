@@ -4,15 +4,22 @@ import { Menu, Phone, X } from 'lucide-react'
 import { business } from '../data/site'
 import { cn } from '../lib/cn'
 
-const links = [
-  { href: '#services', label: 'Services' },
-  { href: '#spa', label: 'The Car Spa' },
-  { href: '#garage', label: 'Garage' },
-  { href: '#marques', label: 'Marques' },
-  { href: '#contact', label: 'Contact' },
+const sections = [
+  { id: 'services', label: 'Services' },
+  { id: 'spa', label: 'The Car Spa' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'marques', label: 'Marques' },
+  { id: 'contact', label: 'Contact' },
 ]
 
-export function Navbar() {
+/** `page` decides whether section links scroll in place or go back to the homepage. */
+export function Navbar({ page = 'home' }: { page?: 'home' | 'gallery' }) {
+  const links = sections.map((s) => ({
+    ...s,
+    href: s.id === 'gallery' ? 'gallery.html' : page === 'home' ? `#${s.id}` : `./#${s.id}`,
+    active: s.id === page,
+  }))
+
   const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -37,15 +44,24 @@ export function Navbar() {
             scrolled ? 'border-white/10 bg-ink/60 backdrop-blur-xl' : 'border-transparent bg-transparent',
           )}
         >
-          <a href="#top" aria-label="Eurowerks home" className="shrink-0">
+          <a href={page === 'home' ? '#top' : './'} aria-label="Eurowerks home" className="shrink-0">
             <img src="images/logo-wordmark.png" alt="Eurowerks" className="h-4 w-auto md:h-5" />
           </a>
           <ul className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="group relative text-sm text-paper/70 transition-colors hover:text-paper">
+                <a
+                  href={l.href}
+                  aria-current={l.active ? 'page' : undefined}
+                  className={cn('group relative text-sm transition-colors hover:text-paper', l.active ? 'text-paper' : 'text-paper/70')}
+                >
                   {l.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-brand transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
+                  <span
+                    className={cn(
+                      'absolute -bottom-1 left-0 h-px w-full bg-brand transition-transform duration-300',
+                      l.active ? 'scale-x-100' : 'origin-right scale-x-0 group-hover:origin-left group-hover:scale-x-100',
+                    )}
+                  />
                 </a>
               </li>
             ))}

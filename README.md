@@ -39,6 +39,15 @@ then update `FRAME_COUNT` and the `STAGES` frame numbers.
 
 Smooth scrolling uses Lenis. With `prefers-reduced-motion` turned on, the site shows the finished car and skips the heavy motion.
 
+## Gallery page
+
+`gallery.html` is a second page with all 37 shop photos from the current site's homepage and gallery. It has:
+- filters by make, plus "In the bay" for cars being worked on
+- a masonry grid
+- a fullscreen viewer with arrow keys, swipe and a thumbnail strip
+
+Photos and captions live in `src/data/gallery.ts`. To add a photo, put a WebP in `public/images/` and a 720px-wide copy in `public/images/thumbs/`, then add an entry to that file.
+
 ## Content and assets
 
 All business info (phones, address, hours, email, services, cities) and every photo comes from the current site. The photos were resized to WebP and live in `public/images/`.
