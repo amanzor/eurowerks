@@ -45,7 +45,11 @@ All business info (phones, address, hours, email, services, cities) and every ph
 
 ## Deploy
 
-The live site is served from the `gh-pages` branch at https://amanzor.github.io/eurowerks/. To redeploy, run the **Deploy to GitHub Pages** workflow from the Actions tab.
+GitHub Pages serves this branch's root. The root `index.html` is the unbuilt source page, so on github.io it forwards visitors to the built site in `docs/`. That redirect is stripped from the build.
+
+To publish changes, run `npm run build`, which writes the site to `docs/`, then commit `docs/` and push. The live site is https://amanzor.github.io/eurowerks/, which lands on `/eurowerks/docs/`.
+
+For a URL without `/docs/`, set Settings → Pages → Branch to this branch with the folder set to `/docs`.
 
 ## Develop
 
