@@ -4,24 +4,25 @@ A redesign concept for [eurowerksauto.com](https://www.eurowerksauto.com/): Euro
 
 ## The hero: "Built part by part"
 
-The homepage opens on a blueprint of a supercar. As you scroll, the car assembles itself one part at a time, and each part is tied to a Eurowerks service:
+The homepage opens on a film of a hypercar assembling itself from flying parts. The film is scrubbed by scroll: it moves forward and backward exactly as fast as you scroll. Its 97 frames (`public/hero/`) are drawn to a full-screen canvas, which is smoother than seeking a `<video>` element.
 
-| Scroll | Part | Service called out |
+As the car comes together, the stage rail highlights the Eurowerks service behind each step:
+
+| Frames | Stage | Service |
 | --- | --- | --- |
-| 0–12% | Blueprint wireframe draws in | — |
-| 12% | Carbon monocoque + roll structure | Pre-purchase inspection |
-| 18% | Coil-over suspension | Suspension upgrades |
-| 22% | Twin-turbo V8 drops in | ECU tuning |
-| 30% | Wheels roll in (rotation matches travel) | Precision alignment |
-| 36% | Brake calipers | Brake systems |
-| 42–58% | Front, door and rear body panels fly in | Factory-matched maintenance |
-| 54–67% | Glass, splitter, skirts, diffuser, wing, exhaust | Exhaust systems |
-| 64% | Headlights, mirrors | ADAS calibration |
-| 70–80% | Primer → gloss red paint wipe with specular sweep | The car spa |
-| 80–84% | Ignition: lights flicker on, red underglow | — |
-| 84%+ | "Every part. Every system. Mastered." + CTAs | — |
+| 1–16 | Cockpit & electronics | Diagnostics & electrical |
+| 17–32 | Steering & front structure | Precision alignment |
+| 33–48 | Chassis, wheels & brakes | Brake systems |
+| 49–64 | Suspension & drivetrain | Suspension · ECU tuning |
+| 65–80 | Body panels | Factory-matched service |
+| 81–89 | Paint & finish | The car spa |
+| 90–97 | Lights & sensors | ADAS calibration |
 
-The car is a hand-built SVG (`src/components/hero/carGeometry.ts`), so it stays sharp at any size, weighs a few KB and needs no 3D runtime. All motion is scroll-linked with Framer Motion (`useScroll` + `useTransform` + `useSpring`) in `src/components/hero/CarAssembly.tsx`. The timeline lives in one table (`T`) there, so retiming is a one-line change.
+When the film ends, "Every part. Every system. Mastered." appears with the booking buttons. The stages and timing are set at the top of `src/components/hero/CarAssembly.tsx`.
+
+**Swapping the film:** export frames from a new video with
+`ffmpeg -i film.mp4 -vf "scale=1296:-2:flags=lanczos" -c:v libwebp -quality 72 public/hero/f%03d.webp`,
+then update `FRAME_COUNT` and the `STAGES` frame numbers.
 
 ## Rest of the page
 
@@ -41,6 +42,10 @@ Smooth scrolling uses Lenis. With `prefers-reduced-motion` turned on, the site s
 ## Content and assets
 
 All business info (phones, address, hours, email, services, cities) and every photo comes from the current site. The photos were resized to WebP and live in `public/images/`.
+
+## Deploy
+
+The live site is served from the `gh-pages` branch at https://amanzor.github.io/eurowerks/. To redeploy, run the **Deploy to GitHub Pages** workflow from the Actions tab.
 
 ## Develop
 
